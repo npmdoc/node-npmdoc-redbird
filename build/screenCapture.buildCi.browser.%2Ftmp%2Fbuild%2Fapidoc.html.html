@@ -1,0 +1,2347 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/OptimalBits/redbird">redbird (v0.6.15)</a>
+</h1>
+<h4>A reverse proxy with support for dynamic tables</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.redbird">module redbird</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redbird.redbird">
+            function <span class="apidocSignatureSpan"></span>redbird
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redbird.buildRoute">
+            function <span class="apidocSignatureSpan">redbird.</span>buildRoute
+            <span class="apidocSignatureSpan">(route)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redbird.buildTarget">
+            function <span class="apidocSignatureSpan">redbird.</span>buildTarget
+            <span class="apidocSignatureSpan">(target, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redbird.docker">
+            function <span class="apidocSignatureSpan">redbird.</span>docker
+            <span class="apidocSignatureSpan">(redbird, url)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redbird.etcd">
+            function <span class="apidocSignatureSpan">redbird.</span>etcd
+            <span class="apidocSignatureSpan">(redbird, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redbird.proxy">
+            function <span class="apidocSignatureSpan">redbird.</span>proxy
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">redbird.</span>docker.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">redbird.</span>letsencrypt</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">redbird.</span>proxy.prototype</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.redbird.docker">module redbird.docker</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redbird.docker.docker">
+            function <span class="apidocSignatureSpan">redbird.</span>docker
+            <span class="apidocSignatureSpan">(redbird, url)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.redbird.docker.prototype">module redbird.docker.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redbird.docker.prototype.register">
+            function <span class="apidocSignatureSpan">redbird.docker.prototype.</span>register
+            <span class="apidocSignatureSpan">(src, target, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redbird.docker.prototype.registerContainer">
+            function <span class="apidocSignatureSpan">redbird.docker.prototype.</span>registerContainer
+            <span class="apidocSignatureSpan">(src, containerId, opts)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.redbird.letsencrypt">module redbird.letsencrypt</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redbird.letsencrypt.getCertificates">
+            function <span class="apidocSignatureSpan">redbird.letsencrypt.</span>getCertificates
+            <span class="apidocSignatureSpan">(domain, email, production, renew, logger)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redbird.letsencrypt.init">
+            function <span class="apidocSignatureSpan">redbird.letsencrypt.</span>init
+            <span class="apidocSignatureSpan">(certPath, port, logger)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.redbird.proxy">module redbird.proxy</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redbird.proxy.proxy">
+            function <span class="apidocSignatureSpan">redbird.</span>proxy
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redbird.proxy.buildRoute">
+            function <span class="apidocSignatureSpan">redbird.proxy.</span>buildRoute
+            <span class="apidocSignatureSpan">(route)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redbird.proxy.buildTarget">
+            function <span class="apidocSignatureSpan">redbird.proxy.</span>buildTarget
+            <span class="apidocSignatureSpan">(target, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redbird.proxy.docker">
+            function <span class="apidocSignatureSpan">redbird.proxy.</span>docker
+            <span class="apidocSignatureSpan">(redbird, url)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redbird.proxy.etcd">
+            function <span class="apidocSignatureSpan">redbird.proxy.</span>etcd
+            <span class="apidocSignatureSpan">(redbird, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.redbird.proxy.prototype">module redbird.proxy.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redbird.proxy.prototype._defaultResolver">
+            function <span class="apidocSignatureSpan">redbird.proxy.prototype.</span>_defaultResolver
+            <span class="apidocSignatureSpan">(host, url)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redbird.proxy.prototype._getTarget">
+            function <span class="apidocSignatureSpan">redbird.proxy.prototype.</span>_getTarget
+            <span class="apidocSignatureSpan">(src, req)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redbird.proxy.prototype.addResolver">
+            function <span class="apidocSignatureSpan">redbird.proxy.prototype.</span>addResolver
+            <span class="apidocSignatureSpan">(resolver)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redbird.proxy.prototype.close">
+            function <span class="apidocSignatureSpan">redbird.proxy.prototype.</span>close
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redbird.proxy.prototype.notFound">
+            function <span class="apidocSignatureSpan">redbird.proxy.prototype.</span>notFound
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redbird.proxy.prototype.register">
+            function <span class="apidocSignatureSpan">redbird.proxy.prototype.</span>register
+            <span class="apidocSignatureSpan">(src, target, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redbird.proxy.prototype.removeResolver">
+            function <span class="apidocSignatureSpan">redbird.proxy.prototype.</span>removeResolver
+            <span class="apidocSignatureSpan">(resolver)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redbird.proxy.prototype.resolve">
+            function <span class="apidocSignatureSpan">redbird.proxy.prototype.</span>resolve
+            <span class="apidocSignatureSpan">(host, url)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redbird.proxy.prototype.setupHttpProxy">
+            function <span class="apidocSignatureSpan">redbird.proxy.prototype.</span>setupHttpProxy
+            <span class="apidocSignatureSpan">(proxy, websocketsUpgrade, log, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redbird.proxy.prototype.setupHttpsProxy">
+            function <span class="apidocSignatureSpan">redbird.proxy.prototype.</span>setupHttpsProxy
+            <span class="apidocSignatureSpan">(proxy, websocketsUpgrade, log, sslOpts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redbird.proxy.prototype.setupLetsencrypt">
+            function <span class="apidocSignatureSpan">redbird.proxy.prototype.</span>setupLetsencrypt
+            <span class="apidocSignatureSpan">(log, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redbird.proxy.prototype.unregister">
+            function <span class="apidocSignatureSpan">redbird.proxy.prototype.</span>unregister
+            <span class="apidocSignatureSpan">(src, target)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redbird.proxy.prototype.updateCertificates">
+            function <span class="apidocSignatureSpan">redbird.proxy.prototype.</span>updateCertificates
+            <span class="apidocSignatureSpan">(domain, email, production, renewWithin, renew)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.redbird" id="apidoc.module.redbird">module redbird</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.redbird.redbird" id="apidoc.element.redbird.redbird">
+        function <span class="apidocSignatureSpan"></span>redbird
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ReverseProxy(opts) {
+  if (!(this instanceof ReverseProxy)) {
+    return new ReverseProxy(opts);
+  }
+
+  this.opts = opts = opts || {};
+
+  var log;
+  if (opts.bunyan !== false) {
+    log = this.log = bunyan.createLogger(opts.bunyan || {
+      name: 'redbird'
+    });
+  }
+
+  var _this = this;
+
+  if (opts.cluster &amp;&amp; typeof opts.cluster !== 'number' || Â&nbsp;opts.cluster &gt; 32) {
+    throw Error('cluster setting must be an integer less than 32');
+  }
+
+  if (opts.cluster &amp;&amp; cluster.isMaster) {
+    for (var i = 0; i &lt; opts.cluster; i++) {
+      cluster.fork();
+    }
+
+    cluster.on('exit', function (worker, code, signal) {
+      // Fork if a worker dies.
+      log &amp;&amp; log.error({
+        code: code,
+        signal: signal
+      },
+        'worker died un-expectedly... restarting it.');
+      cluster.fork();
+    });
+  } else {
+    this.resolvers = [this._defaultResolver];
+
+    opts.port = opts.port || 8080;
+
+    if (opts.letsencrypt) {
+      this.setupLetsencrypt(log, opts);
+    }
+
+    if (opts.resolvers) {
+      this.addResolver(opts.resolvers);
+    }
+
+    //
+    // Routing table.
+    //
+    this.routing = {};
+
+    //
+    // Create a proxy server with custom application logic
+    //
+    var proxy = this.proxy = httpProxy.createProxyServer({
+      xfwd: (opts.xfwd != false),
+      prependPath: false,
+      secure: (opts.secure !== false),
+<span class="apidocCodeCommentSpan">      /*
+      agent: new http.Agent({
+        keepAlive: true
+      })
+      */
+</span>    });
+
+    proxy.on('proxyReq', function (p, req) {
+      if (req.host != null) {
+        p.setHeader('host', req.host);
+      }
+    });
+
+    //
+    // Support NTLM auth
+    //
+    if (opts.ntlm) {
+      proxy.on('proxyRes', function (proxyRes) {
+        var key = 'www-authenticate';
+        proxyRes.headers[key] = proxyRes.headers[key] &amp;&amp; proxyRes.headers[key].split(',');
+      });
+    }
+
+    //
+    // Optionally create an https proxy server.
+    //
+    if (opts.ssl) {
+      if (_.isArray(opts.ssl)) {
+        opts.ssl.forEach(function(sslOpts){
+          _this.setupHttpsProxy(proxy, websocketsUpgrade, log, sslOpts);
+        })
+      } else {
+        this.setupHttpsProxy(proxy, websocketsUpgrade, log, opts.ssl);
+      }
+    }
+
+    //
+    // Plain HTTP Proxy
+    //
+    var server = this.setupHttpProxy(proxy, websocketsUpgrade, log, opts);
+
+    server.listen(opts.port);
+
+    proxy.on('error', handleProxyError);
+
+    log &amp;&amp; log.info('Started a Redbird reverse proxy server on port %s', opts.port);
+  }
+
+  function websocketsUpgrade(req, socket, head) {
+    var src = getSource(req);
+    var target = _this._getTarget(src, req);
+    log &amp;&amp; log.info({ headers: req.headers, target: target }, 'upgrade to websockets');
+    if (target) {
+      proxy.ws(req, socket, head, { target: target });
+    } else {
+      respondNotFound(req, socket);
+    }
+  }
+
+  function handleProxyError(err, req, res) {
+    //
+    // Send a 500 http status if headers have been sent
+    //
+
+    if (err.code === 'ECONNREFUSED') {
+      res.writeHead &amp;&amp; res.writeHead(502);
+    } else if (!res.headersSent) {
+      res.writeHead &amp;&amp; res.writeHead(500);
+    }
+
+    //
+    // Do not log this common error
+    //
+    if (err.message !== 'socket hang up') {
+      log &amp;&amp; log.error(err, 'Proxy Error');
+    }
+
+    //
+    // TODO: if err.code=ECONNREFUSED and there are more servers
+    // for this route, try another one.
+    //
+    res.end(err.code)
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.redbird.buildRoute" id="apidoc.element.redbird.buildRoute">
+        function <span class="apidocSignatureSpan">redbird.</span>buildRoute
+        <span class="apidocSignatureSpan">(route)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">buildRoute = function (route) {
+  if (!_.isString(route) &amp;&amp; !_.isObject(route)) {
+    return null;
+  }
+
+  if (_.isObject(route) &amp;&amp; route.hasOwnProperty('urls') &amp;&amp; route.hasOwnProperty('path')) {
+    // default route type matched.
+    return route;
+  }
+
+  var cacheKey = _.isString(route) ? route : hash(route);
+  var entry = routeCache.get(cacheKey);
+  if (entry) {
+    return entry;
+  }
+
+  var routeObject = { rr: 0, isResolved: true };
+  if (_.isString(route)) {
+    routeObject.urls = [ReverseProxy.buildTarget(route)];
+    routeObject.path = '/';
+  } else {
+    if (!route.hasOwnProperty('url')) {
+      return null;
+    }
+
+    routeObject.urls = (_.isArray(route.url) ? route.url : [route.url]).map(function (url) {
+      return ReverseProxy.buildTarget(url, route.opts || {});
+    });
+
+    routeObject.path = route.path || '/';
+  }
+  routeCache.set(cacheKey, routeObject);
+  return routeObject;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.redbird.buildTarget" id="apidoc.element.redbird.buildTarget">
+        function <span class="apidocSignatureSpan">redbird.</span>buildTarget
+        <span class="apidocSignatureSpan">(target, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">buildTarget = function (target, opts) {
+  opts = opts || {};
+  target = prepareUrl(target);
+  target.sslRedirect = !opts.ssl || opts.ssl.redirect !== false;
+  target.useTargetHostHeader = opts.useTargetHostHeader === true;
+  return target;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.redbird.docker" id="apidoc.element.redbird.docker">
+        function <span class="apidocSignatureSpan">redbird.</span>docker
+        <span class="apidocSignatureSpan">(redbird, url)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function DockerModule(redbird, url) {
+  if (!(this instanceof DockerModule)) {
+    return new DockerModule(redbird, url);
+  }
+
+  this.redbird = redbird;
+  var log = redbird.log;
+
+  var targets = this.targets = {};
+  this.ports = {};
+
+  //
+  // We keep an up-to-date table with all the images having
+  // containers running on the system.
+  //
+  var images = this.images = {};
+  var dolphin = this.dolphin = new Dolphin(url);
+
+  var _this = this;
+
+  function registerIfNeeded(imageName, containerId, containerNames) {
+    var image = images[imageName] = images[imageName] || {};
+    var target = targets[imageName];
+
+    if (target &amp;&amp; image[containerId] !== 'running') {
+      log &amp;&amp; log.info('Registering container %s for target %s', containerId, target.src);
+      _this.registerContainer(target.src, containerId, target.opts);
+    }
+    image[containerId] = 'running';
+  }
+
+  //
+  // Start docker event listener
+  //
+  this.events = dolphin.events();
+
+  this.events.on('connected', function () {
+    //
+    //  Fetch all running containers and register them if
+    //  necessary.
+    //
+    dolphin.containers({ filters: {status:["running"]} }).then(function (containers) {
+      for (var i = 0; i &lt; containers.length; i++) {
+        var container = containers[i];
+        registerIfNeeded(container.Image, container.Id, container.Names);
+      }
+    });
+  });
+
+  this.events.on('event', function (evt) {
+    var image, target;
+
+    log &amp;&amp; log.info('Container %s changed to status %s', evt.id, evt.status);
+
+    switch (evt.status) {
+      case 'start':
+      case 'restart':
+      case 'unpause':
+        registerIfNeeded(evt.from, evt.id);
+        break;
+      case 'stop':
+      case 'die':
+      case 'pause':
+        image = images[evt.from];
+        target = targets[evt.from];
+        if (image) {
+          if (image[evt.id] === 'running' &amp;&amp; target &amp;&amp; _this.ports[evt.id]) {
+            log &amp;&amp; log.info('Un-registering container %s for target %s', evt.id, target.src);
+            _this.redbird.unregister(target.src, _this.ports[evt.id]);
+          }
+          image[evt.id] = 'stopped';
+        }
+        break;
+      default:
+      // Nothing
+    }
+  });
+
+  this.events.on('error', function (err) {
+    log &amp;&amp; log.error(err, 'dolphin docker event error');
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```js
+var redbird = require('redbird')({
+  port: 8080,
+});
+
+require('redbird')
+  .<span class="apidocCodeKeywordSpan">docker</span>(redbird)
+  .register("example.com", 'company/myimage:latest');
+```
+
+##etcd backend
+Redbird can use [node-etcd](https://github.com/stianeikeland/node-etcd) to automatically create proxy records from an etcd cluster
+. Configuration
+is accomplished by passing an array of [options](https://github.com/stianeikeland/node-etcd#constructor-options), plus the hosts
+ and path variables,
+which define which etcd cluster hosts, and which directory within those hosts, that Redbird should poll for updates.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.redbird.etcd" id="apidoc.element.redbird.etcd">
+        function <span class="apidocSignatureSpan">redbird.</span>etcd
+        <span class="apidocSignatureSpan">(redbird, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ETCDModule(redbird, options){
+  if (!(this instanceof ETCDModule)){
+    return new ETCDModule(redbird, options);
+  }
+
+  // Create Redbird Instance and Log
+  this.redbird = redbird;
+  var log = redbird.log;
+  var _this = this;
+
+  // Create node-etcd Instance
+  this.etcd = new Etcd(options.hosts,options.ssloptions);
+  this.etcd_dir = (typeof options.path !== 'undefined') ? options.path : "redbird";
+
+  // Create directory if not created
+  this.etcd.get(this.etcd_dir,function(err, body, header){
+    if (err &amp;&amp; err.errorCode == 100){
+      _this.etcd.mkdir(_this.etcd_dir, function(err){
+        if (err){
+          log.error(err, 'etcd backend error');
+        }
+        else{
+          createWatcher();
+        }
+      });
+    }
+    else if(!err &amp;&amp; body.node.dir){
+      createWatcher();
+    }
+    else{
+      log.error(err, 'etcd backend error');
+    }
+  });
+
+  // Helper function to check if values contain settings
+  function IsJsonString(str) {
+      try {
+          JSON.parse(str);
+      } catch (e) {
+          return false;
+      }
+      return true;
+  }
+
+  // Helper function to pretify etcd directory strings
+  function removeEtcDir(str) {
+    return str.replace(_this.etcd_dir, '').replace(/^\/+|\/+$/g, '');
+  }
+
+  function createWatcher(){
+    // Watch etcd directory
+    _this.watcher = _this.etcd.watcher(_this.etcd_dir, null, {recursive:true});
+
+    // On Add/Update
+    _this.watcher.on("change", function(body,headers){
+      if(body.node.key &amp;&amp; body.node.value &amp;&amp; !IsJsonString(body.node.value)){
+        _this.redbird.register(removeEtcDir(body.node.key),body.node.value);
+      }
+      else if(body.node.key &amp;&amp; body.node.value &amp;&amp; IsJsonString(body.node.value)){
+        var config = JSON.parse(body.node.value);
+        if (typeof config.docker !== 'undefined'){
+          require('../').docker(_this.redbird).register(body.node.key,body.node.value.docker,body.node.value);
+        }
+        else {
+          _this.redbird.register(removeEtcDir(body.node.key),config.hosts,config);
+        }
+      }
+    });
+
+    // On Delete
+    _this.watcher.on("delete", function(body,headers){
+      if(body.node.key){
+        _this.redbird.unregister(removeEtcDir(body.node.key));
+      }
+    });
+
+    // Handle Errors
+    _this.watcher.on("error", function(err){
+      log.error(err, 'etcd backend error');
+    });
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+});
+
+var options = {
+  hosts: ['localhost:2379'], // REQUIRED - you must define array of cluster hosts
+	path: ['redbird'], // OPTIONAL - path to etcd keys
+	... // OPTIONAL - pass in node-etcd connection options
+}
+require('redbird').<span class="apidocCodeKeywordSpan">etcd</span>(redbird,options);
+```
+etcd records can be created in one of two ways, either as a target destination pair:
+```/redbird/example.com			"8.8.8.8"```
+or by passing a JSON object containing multiple hosts, and Redbird options:
+```
+/redbird/derek.com				{ "hosts" : ["10.10.10.10", "11.11.11.11"]}
+/redbird/johnathan.com    { "ssl" : true }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.redbird.proxy" id="apidoc.element.redbird.proxy">
+        function <span class="apidocSignatureSpan">redbird.</span>proxy
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ReverseProxy(opts) {
+  if (!(this instanceof ReverseProxy)) {
+    return new ReverseProxy(opts);
+  }
+
+  this.opts = opts = opts || {};
+
+  var log;
+  if (opts.bunyan !== false) {
+    log = this.log = bunyan.createLogger(opts.bunyan || {
+      name: 'redbird'
+    });
+  }
+
+  var _this = this;
+
+  if (opts.cluster &amp;&amp; typeof opts.cluster !== 'number' || Â&nbsp;opts.cluster &gt; 32) {
+    throw Error('cluster setting must be an integer less than 32');
+  }
+
+  if (opts.cluster &amp;&amp; cluster.isMaster) {
+    for (var i = 0; i &lt; opts.cluster; i++) {
+      cluster.fork();
+    }
+
+    cluster.on('exit', function (worker, code, signal) {
+      // Fork if a worker dies.
+      log &amp;&amp; log.error({
+        code: code,
+        signal: signal
+      },
+        'worker died un-expectedly... restarting it.');
+      cluster.fork();
+    });
+  } else {
+    this.resolvers = [this._defaultResolver];
+
+    opts.port = opts.port || 8080;
+
+    if (opts.letsencrypt) {
+      this.setupLetsencrypt(log, opts);
+    }
+
+    if (opts.resolvers) {
+      this.addResolver(opts.resolvers);
+    }
+
+    //
+    // Routing table.
+    //
+    this.routing = {};
+
+    //
+    // Create a proxy server with custom application logic
+    //
+    var proxy = this.proxy = httpProxy.createProxyServer({
+      xfwd: (opts.xfwd != false),
+      prependPath: false,
+      secure: (opts.secure !== false),
+<span class="apidocCodeCommentSpan">      /*
+      agent: new http.Agent({
+        keepAlive: true
+      })
+      */
+</span>    });
+
+    proxy.on('proxyReq', function (p, req) {
+      if (req.host != null) {
+        p.setHeader('host', req.host);
+      }
+    });
+
+    //
+    // Support NTLM auth
+    //
+    if (opts.ntlm) {
+      proxy.on('proxyRes', function (proxyRes) {
+        var key = 'www-authenticate';
+        proxyRes.headers[key] = proxyRes.headers[key] &amp;&amp; proxyRes.headers[key].split(',');
+      });
+    }
+
+    //
+    // Optionally create an https proxy server.
+    //
+    if (opts.ssl) {
+      if (_.isArray(opts.ssl)) {
+        opts.ssl.forEach(function(sslOpts){
+          _this.setupHttpsProxy(proxy, websocketsUpgrade, log, sslOpts);
+        })
+      } else {
+        this.setupHttpsProxy(proxy, websocketsUpgrade, log, opts.ssl);
+      }
+    }
+
+    //
+    // Plain HTTP Proxy
+    //
+    var server = this.setupHttpProxy(proxy, websocketsUpgrade, log, opts);
+
+    server.listen(opts.port);
+
+    proxy.on('error', handleProxyError);
+
+    log &amp;&amp; log.info('Started a Redbird reverse proxy server on port %s', opts.port);
+  }
+
+  function websocketsUpgrade(req, socket, head) {
+    var src = getSource(req);
+    var target = _this._getTarget(src, req);
+    log &amp;&amp; log.info({ headers: req.headers, target: target }, 'upgrade to websockets');
+    if (target) {
+      proxy.ws(req, socket, head, { target: target });
+    } else {
+      respondNotFound(req, socket);
+    }
+  }
+
+  function handleProxyError(err, req, res) {
+    //
+    // Send a 500 http status if headers have been sent
+    //
+
+    if (err.code === 'ECONNREFUSED') {
+      res.writeHead &amp;&amp; res.writeHead(502);
+    } else if (!res.headersSent) {
+      res.writeHead &amp;&amp; res.writeHead(500);
+    }
+
+    //
+    // Do not log this common error
+    //
+    if (err.message !== 'socket hang up') {
+      log &amp;&amp; log.error(err, 'Proxy Error');
+    }
+
+    //
+    // TODO: if err.code=ECONNREFUSED and there are more servers
+    // for this route, try another one.
+    //
+    res.end(err.code)
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.redbird.docker" id="apidoc.module.redbird.docker">module redbird.docker</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.redbird.docker.docker" id="apidoc.element.redbird.docker.docker">
+        function <span class="apidocSignatureSpan">redbird.</span>docker
+        <span class="apidocSignatureSpan">(redbird, url)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function DockerModule(redbird, url) {
+  if (!(this instanceof DockerModule)) {
+    return new DockerModule(redbird, url);
+  }
+
+  this.redbird = redbird;
+  var log = redbird.log;
+
+  var targets = this.targets = {};
+  this.ports = {};
+
+  //
+  // We keep an up-to-date table with all the images having
+  // containers running on the system.
+  //
+  var images = this.images = {};
+  var dolphin = this.dolphin = new Dolphin(url);
+
+  var _this = this;
+
+  function registerIfNeeded(imageName, containerId, containerNames) {
+    var image = images[imageName] = images[imageName] || {};
+    var target = targets[imageName];
+
+    if (target &amp;&amp; image[containerId] !== 'running') {
+      log &amp;&amp; log.info('Registering container %s for target %s', containerId, target.src);
+      _this.registerContainer(target.src, containerId, target.opts);
+    }
+    image[containerId] = 'running';
+  }
+
+  //
+  // Start docker event listener
+  //
+  this.events = dolphin.events();
+
+  this.events.on('connected', function () {
+    //
+    //  Fetch all running containers and register them if
+    //  necessary.
+    //
+    dolphin.containers({ filters: {status:["running"]} }).then(function (containers) {
+      for (var i = 0; i &lt; containers.length; i++) {
+        var container = containers[i];
+        registerIfNeeded(container.Image, container.Id, container.Names);
+      }
+    });
+  });
+
+  this.events.on('event', function (evt) {
+    var image, target;
+
+    log &amp;&amp; log.info('Container %s changed to status %s', evt.id, evt.status);
+
+    switch (evt.status) {
+      case 'start':
+      case 'restart':
+      case 'unpause':
+        registerIfNeeded(evt.from, evt.id);
+        break;
+      case 'stop':
+      case 'die':
+      case 'pause':
+        image = images[evt.from];
+        target = targets[evt.from];
+        if (image) {
+          if (image[evt.id] === 'running' &amp;&amp; target &amp;&amp; _this.ports[evt.id]) {
+            log &amp;&amp; log.info('Un-registering container %s for target %s', evt.id, target.src);
+            _this.redbird.unregister(target.src, _this.ports[evt.id]);
+          }
+          image[evt.id] = 'stopped';
+        }
+        break;
+      default:
+      // Nothing
+    }
+  });
+
+  this.events.on('error', function (err) {
+    log &amp;&amp; log.error(err, 'dolphin docker event error');
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```js
+var redbird = require('redbird')({
+  port: 8080,
+});
+
+require('redbird')
+  .<span class="apidocCodeKeywordSpan">docker</span>(redbird)
+  .register("example.com", 'company/myimage:latest');
+```
+
+##etcd backend
+Redbird can use [node-etcd](https://github.com/stianeikeland/node-etcd) to automatically create proxy records from an etcd cluster
+. Configuration
+is accomplished by passing an array of [options](https://github.com/stianeikeland/node-etcd#constructor-options), plus the hosts
+ and path variables,
+which define which etcd cluster hosts, and which directory within those hosts, that Redbird should poll for updates.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.redbird.docker.prototype" id="apidoc.module.redbird.docker.prototype">module redbird.docker.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.redbird.docker.prototype.register" id="apidoc.element.redbird.docker.prototype.register">
+        function <span class="apidocSignatureSpan">redbird.docker.prototype.</span>register
+        <span class="apidocSignatureSpan">(src, target, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">register = function (src, target, opts) {
+  if (this.targets[target]) {
+    throw Error('Cannot register the same target twice');
+  }
+
+  this.targets[target] = {
+    src: src,
+    opts: opts
+  };
+
+  var _this = this;
+  var image = this.images[target];
+  if (image) {
+    for (var containerId in image) {
+      if (image[containerId] === 'running') {
+        this.registerContainer(src, containerId, opts);
+      }
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```js
+var proxy = require('redbird')({port: 80});
+
+// OPTIONAL: Setup your proxy but disable the X-Forwarded-For header
+var proxy = require('redbird')({port: 80, xfwd: false});
+
+// Route to any global ip
+proxy.<span class="apidocCodeKeywordSpan">register</span>("optimalbits.com", "http://167.23.42.67:8000");
+
+// Route to any local ip, for example from docker containers.
+proxy.register("example.com", "http://172.17.42.1:8001");
+
+// Route from hostnames as well as paths
+proxy.register("example.com/static", "http://172.17.42.1:8002");
+proxy.register("example.com/media", "http://172.17.42.1:8003");
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.redbird.docker.prototype.registerContainer" id="apidoc.element.redbird.docker.prototype.registerContainer">
+        function <span class="apidocSignatureSpan">redbird.docker.prototype.</span>registerContainer
+        <span class="apidocSignatureSpan">(src, containerId, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">registerContainer = function (src, containerId, opts) {
+  var _this = this;
+  containerPort(this.dolphin, containerId).then(function (targetPort) {
+    _this.redbird.register(src, targetPort, opts);
+    _this.ports[containerId] = targetPort;
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.redbird.letsencrypt" id="apidoc.module.redbird.letsencrypt">module redbird.letsencrypt</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.redbird.letsencrypt.getCertificates" id="apidoc.element.redbird.letsencrypt.getCertificates">
+        function <span class="apidocSignatureSpan">redbird.letsencrypt.</span>getCertificates
+        <span class="apidocSignatureSpan">(domain, email, production, renew, logger)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getCertificates(domain, email, production, renew, logger){
+  var LE = require('letsencrypt');
+  var le;
+
+  // Storage Backend
+  var leStore = require('le-store-certbot').create(leStoreConfig);
+
+  // ACME Challenge Handlers
+  var leChallenge = require('le-challenge-fs').create({
+    webrootPath: webrootPath,
+    debug: false
+  });
+
+  le = LE.create({
+    server: production ?  LE.productionServerUrl : LE.stagingServerUrl,
+    store: leStore,                                          // handles saving of config, accounts, and certificates
+    challenges: { 'http-01': leChallenge },                  // handles /.well-known/acme-challege keys and tokens
+    challengeType: 'http-01',                                // default to this challenge type
+    debug: false,
+    log: function (debug) {
+      logger &amp;&amp; logger.info(arguments, 'Lets encrypt debugger');
+    }
+  });
+
+  // Check in-memory cache of certificates for the named domain
+  return le.check({ domains: [domain] }).then(function (cert){
+    var opts = {
+      domains: [domain],
+      email: email,
+      agreeTos: true,
+      rsaKeySize: 2048,                                       // 2048 or higher
+      challengeType: 'http-01'
+    }
+
+    if (cert){
+      if (renew){
+        logger &amp;&amp; logger.info('renewing cert for ' + domain);
+        opts.duplicate = true;
+        return le.renew(opts, cert).catch(function(err){
+          logger &amp;&amp; logger.error(err, 'Error renewing certificates for ', domain);
+        });
+      } else {
+        logger &amp;&amp; logger.info('Using cached cert for ' + domain);
+        return cert;
+      }
+    } else {
+      // Register Certificate manually
+      logger &amp;&amp; logger.info('Manually registering certificate for %s', domain);
+      return le.register(opts).catch(function (err) {
+        logger &amp;&amp; logger.error(err, 'Error registering LetsEncrypt certificates');
+      });
+    }
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.redbird.letsencrypt.init" id="apidoc.element.redbird.letsencrypt.init">
+        function <span class="apidocSignatureSpan">redbird.letsencrypt.</span>init
+        <span class="apidocSignatureSpan">(certPath, port, logger)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function init(certPath, port, logger){
+  var http = require('http');
+  var path = require('path');
+  var url = require('url');
+  var fs = require('fs');
+
+  logger &amp;&amp; logger.info('Initializing letsencrypt, path %s, port: %s', certPath, port);
+
+  leStoreConfig = {
+    configDir: certPath,
+    privkeyPath: ':configDir/:hostname/privkey.pem',
+    fullchainPath: ':configDir/:hostname/fullchain.pem',
+    certPath: ':configDir/:hostname/cert.pem',
+    chainPath: ':configDir/:hostname/chain.pem',
+
+    workDir: ':configDir/letsencrypt/var/lib',
+    logsDir: ':configDir/letsencrypt/var/log',
+
+    webrootPath: webrootPath,
+    debug: false
+  }
+
+  // we need to proxy for example: 'example.com/.well-known/acme-challenge' -&gt; 'localhost:port/example.com/'
+  http.createServer(function (req, res){
+    var uri = url.parse(req.url).pathname;
+    var filename = path.join(certPath, uri);
+
+    logger &amp;&amp; logger.info('LetsEncrypt CA trying to validate challenge %s', filename);
+
+    fs.exists(filename, function(exists) {
+      if (!exists){
+        res.writeHead(404, {"Content-Type": "text/plain"});
+        res.write("404 Not Found\n");
+        res.end();
+        return;
+      }
+
+      res.writeHead(200);
+      fs.createReadStream(filename, "binary").pipe(res);
+    });
+  }).listen(port);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.redbird.proxy" id="apidoc.module.redbird.proxy">module redbird.proxy</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.redbird.proxy.proxy" id="apidoc.element.redbird.proxy.proxy">
+        function <span class="apidocSignatureSpan">redbird.</span>proxy
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ReverseProxy(opts) {
+  if (!(this instanceof ReverseProxy)) {
+    return new ReverseProxy(opts);
+  }
+
+  this.opts = opts = opts || {};
+
+  var log;
+  if (opts.bunyan !== false) {
+    log = this.log = bunyan.createLogger(opts.bunyan || {
+      name: 'redbird'
+    });
+  }
+
+  var _this = this;
+
+  if (opts.cluster &amp;&amp; typeof opts.cluster !== 'number' || Â&nbsp;opts.cluster &gt; 32) {
+    throw Error('cluster setting must be an integer less than 32');
+  }
+
+  if (opts.cluster &amp;&amp; cluster.isMaster) {
+    for (var i = 0; i &lt; opts.cluster; i++) {
+      cluster.fork();
+    }
+
+    cluster.on('exit', function (worker, code, signal) {
+      // Fork if a worker dies.
+      log &amp;&amp; log.error({
+        code: code,
+        signal: signal
+      },
+        'worker died un-expectedly... restarting it.');
+      cluster.fork();
+    });
+  } else {
+    this.resolvers = [this._defaultResolver];
+
+    opts.port = opts.port || 8080;
+
+    if (opts.letsencrypt) {
+      this.setupLetsencrypt(log, opts);
+    }
+
+    if (opts.resolvers) {
+      this.addResolver(opts.resolvers);
+    }
+
+    //
+    // Routing table.
+    //
+    this.routing = {};
+
+    //
+    // Create a proxy server with custom application logic
+    //
+    var proxy = this.proxy = httpProxy.createProxyServer({
+      xfwd: (opts.xfwd != false),
+      prependPath: false,
+      secure: (opts.secure !== false),
+<span class="apidocCodeCommentSpan">      /*
+      agent: new http.Agent({
+        keepAlive: true
+      })
+      */
+</span>    });
+
+    proxy.on('proxyReq', function (p, req) {
+      if (req.host != null) {
+        p.setHeader('host', req.host);
+      }
+    });
+
+    //
+    // Support NTLM auth
+    //
+    if (opts.ntlm) {
+      proxy.on('proxyRes', function (proxyRes) {
+        var key = 'www-authenticate';
+        proxyRes.headers[key] = proxyRes.headers[key] &amp;&amp; proxyRes.headers[key].split(',');
+      });
+    }
+
+    //
+    // Optionally create an https proxy server.
+    //
+    if (opts.ssl) {
+      if (_.isArray(opts.ssl)) {
+        opts.ssl.forEach(function(sslOpts){
+          _this.setupHttpsProxy(proxy, websocketsUpgrade, log, sslOpts);
+        })
+      } else {
+        this.setupHttpsProxy(proxy, websocketsUpgrade, log, opts.ssl);
+      }
+    }
+
+    //
+    // Plain HTTP Proxy
+    //
+    var server = this.setupHttpProxy(proxy, websocketsUpgrade, log, opts);
+
+    server.listen(opts.port);
+
+    proxy.on('error', handleProxyError);
+
+    log &amp;&amp; log.info('Started a Redbird reverse proxy server on port %s', opts.port);
+  }
+
+  function websocketsUpgrade(req, socket, head) {
+    var src = getSource(req);
+    var target = _this._getTarget(src, req);
+    log &amp;&amp; log.info({ headers: req.headers, target: target }, 'upgrade to websockets');
+    if (target) {
+      proxy.ws(req, socket, head, { target: target });
+    } else {
+      respondNotFound(req, socket);
+    }
+  }
+
+  function handleProxyError(err, req, res) {
+    //
+    // Send a 500 http status if headers have been sent
+    //
+
+    if (err.code === 'ECONNREFUSED') {
+      res.writeHead &amp;&amp; res.writeHead(502);
+    } else if (!res.headersSent) {
+      res.writeHead &amp;&amp; res.writeHead(500);
+    }
+
+    //
+    // Do not log this common error
+    //
+    if (err.message !== 'socket hang up') {
+      log &amp;&amp; log.error(err, 'Proxy Error');
+    }
+
+    //
+    // TODO: if err.code=ECONNREFUSED and there are more servers
+    // for this route, try another one.
+    //
+    res.end(err.code)
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.redbird.proxy.buildRoute" id="apidoc.element.redbird.proxy.buildRoute">
+        function <span class="apidocSignatureSpan">redbird.proxy.</span>buildRoute
+        <span class="apidocSignatureSpan">(route)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">buildRoute = function (route) {
+  if (!_.isString(route) &amp;&amp; !_.isObject(route)) {
+    return null;
+  }
+
+  if (_.isObject(route) &amp;&amp; route.hasOwnProperty('urls') &amp;&amp; route.hasOwnProperty('path')) {
+    // default route type matched.
+    return route;
+  }
+
+  var cacheKey = _.isString(route) ? route : hash(route);
+  var entry = routeCache.get(cacheKey);
+  if (entry) {
+    return entry;
+  }
+
+  var routeObject = { rr: 0, isResolved: true };
+  if (_.isString(route)) {
+    routeObject.urls = [ReverseProxy.buildTarget(route)];
+    routeObject.path = '/';
+  } else {
+    if (!route.hasOwnProperty('url')) {
+      return null;
+    }
+
+    routeObject.urls = (_.isArray(route.url) ? route.url : [route.url]).map(function (url) {
+      return ReverseProxy.buildTarget(url, route.opts || {});
+    });
+
+    routeObject.path = route.path || '/';
+  }
+  routeCache.set(cacheKey, routeObject);
+  return routeObject;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.redbird.proxy.buildTarget" id="apidoc.element.redbird.proxy.buildTarget">
+        function <span class="apidocSignatureSpan">redbird.proxy.</span>buildTarget
+        <span class="apidocSignatureSpan">(target, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">buildTarget = function (target, opts) {
+  opts = opts || {};
+  target = prepareUrl(target);
+  target.sslRedirect = !opts.ssl || opts.ssl.redirect !== false;
+  target.useTargetHostHeader = opts.useTargetHostHeader === true;
+  return target;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.redbird.proxy.docker" id="apidoc.element.redbird.proxy.docker">
+        function <span class="apidocSignatureSpan">redbird.proxy.</span>docker
+        <span class="apidocSignatureSpan">(redbird, url)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function DockerModule(redbird, url) {
+  if (!(this instanceof DockerModule)) {
+    return new DockerModule(redbird, url);
+  }
+
+  this.redbird = redbird;
+  var log = redbird.log;
+
+  var targets = this.targets = {};
+  this.ports = {};
+
+  //
+  // We keep an up-to-date table with all the images having
+  // containers running on the system.
+  //
+  var images = this.images = {};
+  var dolphin = this.dolphin = new Dolphin(url);
+
+  var _this = this;
+
+  function registerIfNeeded(imageName, containerId, containerNames) {
+    var image = images[imageName] = images[imageName] || {};
+    var target = targets[imageName];
+
+    if (target &amp;&amp; image[containerId] !== 'running') {
+      log &amp;&amp; log.info('Registering container %s for target %s', containerId, target.src);
+      _this.registerContainer(target.src, containerId, target.opts);
+    }
+    image[containerId] = 'running';
+  }
+
+  //
+  // Start docker event listener
+  //
+  this.events = dolphin.events();
+
+  this.events.on('connected', function () {
+    //
+    //  Fetch all running containers and register them if
+    //  necessary.
+    //
+    dolphin.containers({ filters: {status:["running"]} }).then(function (containers) {
+      for (var i = 0; i &lt; containers.length; i++) {
+        var container = containers[i];
+        registerIfNeeded(container.Image, container.Id, container.Names);
+      }
+    });
+  });
+
+  this.events.on('event', function (evt) {
+    var image, target;
+
+    log &amp;&amp; log.info('Container %s changed to status %s', evt.id, evt.status);
+
+    switch (evt.status) {
+      case 'start':
+      case 'restart':
+      case 'unpause':
+        registerIfNeeded(evt.from, evt.id);
+        break;
+      case 'stop':
+      case 'die':
+      case 'pause':
+        image = images[evt.from];
+        target = targets[evt.from];
+        if (image) {
+          if (image[evt.id] === 'running' &amp;&amp; target &amp;&amp; _this.ports[evt.id]) {
+            log &amp;&amp; log.info('Un-registering container %s for target %s', evt.id, target.src);
+            _this.redbird.unregister(target.src, _this.ports[evt.id]);
+          }
+          image[evt.id] = 'stopped';
+        }
+        break;
+      default:
+      // Nothing
+    }
+  });
+
+  this.events.on('error', function (err) {
+    log &amp;&amp; log.error(err, 'dolphin docker event error');
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```js
+var redbird = require('redbird')({
+  port: 8080,
+});
+
+require('redbird')
+  .<span class="apidocCodeKeywordSpan">docker</span>(redbird)
+  .register("example.com", 'company/myimage:latest');
+```
+
+##etcd backend
+Redbird can use [node-etcd](https://github.com/stianeikeland/node-etcd) to automatically create proxy records from an etcd cluster
+. Configuration
+is accomplished by passing an array of [options](https://github.com/stianeikeland/node-etcd#constructor-options), plus the hosts
+ and path variables,
+which define which etcd cluster hosts, and which directory within those hosts, that Redbird should poll for updates.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.redbird.proxy.etcd" id="apidoc.element.redbird.proxy.etcd">
+        function <span class="apidocSignatureSpan">redbird.proxy.</span>etcd
+        <span class="apidocSignatureSpan">(redbird, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ETCDModule(redbird, options){
+  if (!(this instanceof ETCDModule)){
+    return new ETCDModule(redbird, options);
+  }
+
+  // Create Redbird Instance and Log
+  this.redbird = redbird;
+  var log = redbird.log;
+  var _this = this;
+
+  // Create node-etcd Instance
+  this.etcd = new Etcd(options.hosts,options.ssloptions);
+  this.etcd_dir = (typeof options.path !== 'undefined') ? options.path : "redbird";
+
+  // Create directory if not created
+  this.etcd.get(this.etcd_dir,function(err, body, header){
+    if (err &amp;&amp; err.errorCode == 100){
+      _this.etcd.mkdir(_this.etcd_dir, function(err){
+        if (err){
+          log.error(err, 'etcd backend error');
+        }
+        else{
+          createWatcher();
+        }
+      });
+    }
+    else if(!err &amp;&amp; body.node.dir){
+      createWatcher();
+    }
+    else{
+      log.error(err, 'etcd backend error');
+    }
+  });
+
+  // Helper function to check if values contain settings
+  function IsJsonString(str) {
+      try {
+          JSON.parse(str);
+      } catch (e) {
+          return false;
+      }
+      return true;
+  }
+
+  // Helper function to pretify etcd directory strings
+  function removeEtcDir(str) {
+    return str.replace(_this.etcd_dir, '').replace(/^\/+|\/+$/g, '');
+  }
+
+  function createWatcher(){
+    // Watch etcd directory
+    _this.watcher = _this.etcd.watcher(_this.etcd_dir, null, {recursive:true});
+
+    // On Add/Update
+    _this.watcher.on("change", function(body,headers){
+      if(body.node.key &amp;&amp; body.node.value &amp;&amp; !IsJsonString(body.node.value)){
+        _this.redbird.register(removeEtcDir(body.node.key),body.node.value);
+      }
+      else if(body.node.key &amp;&amp; body.node.value &amp;&amp; IsJsonString(body.node.value)){
+        var config = JSON.parse(body.node.value);
+        if (typeof config.docker !== 'undefined'){
+          require('../').docker(_this.redbird).register(body.node.key,body.node.value.docker,body.node.value);
+        }
+        else {
+          _this.redbird.register(removeEtcDir(body.node.key),config.hosts,config);
+        }
+      }
+    });
+
+    // On Delete
+    _this.watcher.on("delete", function(body,headers){
+      if(body.node.key){
+        _this.redbird.unregister(removeEtcDir(body.node.key));
+      }
+    });
+
+    // Handle Errors
+    _this.watcher.on("error", function(err){
+      log.error(err, 'etcd backend error');
+    });
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+});
+
+var options = {
+  hosts: ['localhost:2379'], // REQUIRED - you must define array of cluster hosts
+	path: ['redbird'], // OPTIONAL - path to etcd keys
+	... // OPTIONAL - pass in node-etcd connection options
+}
+require('redbird').<span class="apidocCodeKeywordSpan">etcd</span>(redbird,options);
+```
+etcd records can be created in one of two ways, either as a target destination pair:
+```/redbird/example.com			"8.8.8.8"```
+or by passing a JSON object containing multiple hosts, and Redbird options:
+```
+/redbird/derek.com				{ "hosts" : ["10.10.10.10", "11.11.11.11"]}
+/redbird/johnathan.com    { "ssl" : true }
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.redbird.proxy.prototype" id="apidoc.module.redbird.proxy.prototype">module redbird.proxy.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.redbird.proxy.prototype._defaultResolver" id="apidoc.element.redbird.proxy.prototype._defaultResolver">
+        function <span class="apidocSignatureSpan">redbird.proxy.prototype.</span>_defaultResolver
+        <span class="apidocSignatureSpan">(host, url)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_defaultResolver = function (host, url) {
+  // Given a src resolve it to a target route if any available.
+  if (!host) {
+    return;
+  }
+
+  url = url || '/';
+
+  var routes = this.routing[host];
+  var i = 0;
+
+  if (routes) {
+    var len = routes.length;
+
+    //
+    // Find path that matches the start of req.url
+    //
+    for (i = 0; i &lt; len; i++) {
+      var route = routes[i];
+
+      if (route.path === '/' || startsWith(url, route.path)) {
+        return route;
+      }
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.redbird.proxy.prototype._getTarget" id="apidoc.element.redbird.proxy.prototype._getTarget">
+        function <span class="apidocSignatureSpan">redbird.proxy.prototype.</span>_getTarget
+        <span class="apidocSignatureSpan">(src, req)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_getTarget = function (src, req) {
+  var url = req.url;
+  var route = this.resolve(src, url);
+
+  if (!route) {
+    this.log &amp;&amp; this.log.warn({ src: src, url: url }, 'no valid route found for given source');
+    return;
+  }
+
+  var pathname = route.path;
+  if (pathname.length &gt; 1) {
+    //
+    // remove prefix from src
+    //
+    req._url = url; // save original url
+    req.url = url.substr(pathname.length) || '/';
+  }
+
+  //
+  // Perform Round-Robin on the available targets
+  // TODO: if target errors with EHOSTUNREACH we should skip this
+  // target and try with another.
+  //
+  var urls = route.urls;
+  var j = route.rr;
+  route.rr = (j + 1) % urls.length; // get and update Round-robin index.
+  var target = route.urls[j];
+
+  //
+  // Fix request url if targetname specified.
+  //
+  if (target.pathname) {
+    req.url = path.join(target.pathname, req.url);
+  }
+
+  //
+  // Host headers are passed through from the source by default
+  // Often we want to use the host header of the target instead
+  //
+  if (target.useTargetHostHeader === true) {
+    req.host = target.host;
+  }
+
+  this.log &amp;&amp; this.log.info('Proxying %s to %s', src + url, path.join(target.host, req.url));
+
+  return target;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.redbird.proxy.prototype.addResolver" id="apidoc.element.redbird.proxy.prototype.addResolver">
+        function <span class="apidocSignatureSpan">redbird.proxy.prototype.</span>addResolver
+        <span class="apidocSignatureSpan">(resolver)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">addResolver = function (resolver) {
+  if (this.opts.cluster &amp;&amp; cluster.isMaster) return this;
+
+  if (!_.isArray(resolver)) {
+    resolver = [resolver];
+  }
+
+  var _this = this;
+  resolver.forEach(function (resolveObj) {
+    if (!_.isFunction(resolveObj)) {
+      throw new Error("Resolver must be an invokable function.");
+    }
+
+    if (!resolveObj.hasOwnProperty('priority')) {
+      resolveObj.priority = 0;
+    }
+
+    _this.resolvers.push(resolveObj);
+  });
+
+  _this.resolvers = _.sortBy(_.uniq(_this.resolvers), function (r) {
+    return -r.priority;
+  });
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    'http://127.0.0.1:8000',
+    'http://128.0.1.1:9999'
+   ]
+  } : null;
+};
+
+topPriority.priority = 200;
+proxy.<span class="apidocCodeKeywordSpan">addResolver</span>(topPriority);
+
+
+// remove top priority after 10 minutes,
+setTimeout(function() {
+  proxy.removeResolver(topPriority);
+}, 600000);
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.redbird.proxy.prototype.close" id="apidoc.element.redbird.proxy.prototype.close">
+        function <span class="apidocSignatureSpan">redbird.proxy.prototype.</span>close
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">close = function () {
+  try {
+    this.server.close();
+    this.httpsServer &amp;&amp; this.httpsServer.close();
+  } catch (err) {
+    // Ignore for now...
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.redbird.proxy.prototype.notFound" id="apidoc.element.redbird.proxy.prototype.notFound">
+        function <span class="apidocSignatureSpan">redbird.proxy.prototype.</span>notFound
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">notFound = function (callback) {
+  if (typeof callback == "function")
+    respondNotFound = callback;
+  else
+    throw Error('notFound callback is not a function');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.redbird.proxy.prototype.register" id="apidoc.element.redbird.proxy.prototype.register">
+        function <span class="apidocSignatureSpan">redbird.proxy.prototype.</span>register
+        <span class="apidocSignatureSpan">(src, target, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">register = function (src, target, opts) {
+  if (this.opts.cluster &amp;&amp; cluster.isMaster) return this;
+
+  if (!src || !target) {
+    throw Error('Cannot register a new route with unspecified src or target');
+  }
+
+  var routing = this.routing;
+
+  src = prepareUrl(src);
+
+  if (opts) {
+    var ssl = opts.ssl;
+    if (ssl) {
+      if (!this.httpsServer) {
+        throw Error('Cannot register https routes without defining a ssl port');
+      }
+
+      if (!this.certs[src.hostname]) {
+        if (ssl.key || ssl.cert || ssl.ca) {
+          this.certs[src.hostname] = createCredentialContext(ssl.key, ssl.cert, ssl.ca);
+        } else if (ssl.letsencrypt) {
+          if (!this.opts.letsencrypt || !this.opts.letsencrypt.path) {
+            console.error('Missing certificate path for Lets Encrypt');
+            return;
+          }
+          this.log &amp;&amp; this.log.info('Getting Lets Encrypt certificates for %s', src.hostname);
+          this.updateCertificates(
+            src.hostname,
+            ssl.letsencrypt.email,
+            ssl.letsencrypt.production,
+            this.opts.letsencrypt.renewWithin || ONE_MONTH);
+        } else {
+          // Trigger the use of the default certificates.
+          this.certs[src.hostname] = void 0;
+        }
+      }
+    }
+  }
+  target = ReverseProxy.buildTarget(target, opts);
+
+  var host = routing[src.hostname] = routing[src.hostname] || [];
+  var pathname = src.pathname || '/';
+  var route = _.find(host, { path: pathname });
+
+  if (!route) {
+    route = { path: pathname, rr: 0, urls: [] };
+    host.push(route);
+
+    //
+    // Sort routes
+    //
+    routing[src.hostname] = _.sortBy(host, function (_route) {
+      return -_route.path.length;
+    });
+  }
+
+  route.urls.push(target);
+
+  this.log &amp;&amp; this.log.info({ from: src, to: target }, 'Registered a new route');
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```js
+var proxy = require('redbird')({port: 80});
+
+// OPTIONAL: Setup your proxy but disable the X-Forwarded-For header
+var proxy = require('redbird')({port: 80, xfwd: false});
+
+// Route to any global ip
+proxy.<span class="apidocCodeKeywordSpan">register</span>("optimalbits.com", "http://167.23.42.67:8000");
+
+// Route to any local ip, for example from docker containers.
+proxy.register("example.com", "http://172.17.42.1:8001");
+
+// Route from hostnames as well as paths
+proxy.register("example.com/static", "http://172.17.42.1:8002");
+proxy.register("example.com/media", "http://172.17.42.1:8003");
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.redbird.proxy.prototype.removeResolver" id="apidoc.element.redbird.proxy.prototype.removeResolver">
+        function <span class="apidocSignatureSpan">redbird.proxy.prototype.</span>removeResolver
+        <span class="apidocSignatureSpan">(resolver)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">removeResolver = function (resolver) {
+  if (this.opts.cluster &amp;&amp; cluster.isMaster) return this;
+  // since unique resolvers are not checked for performance,
+  // just remove every existence.
+  this.resolvers = this.resolvers.filter(function (resolverFn) {
+    return resolverFn !== resolver;
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+topPriority.priority = 200;
+proxy.addResolver(topPriority);
+
+
+// remove top priority after 10 minutes,
+setTimeout(function() {
+  proxy.<span class="apidocCodeKeywordSpan">removeResolver</span>(topPriority);
+}, 600000);
+```
+
+##Roadmap
+
+- Statistics (number of connections, load, response times, etc)
+- CORS support.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.redbird.proxy.prototype.resolve" id="apidoc.element.redbird.proxy.prototype.resolve">
+        function <span class="apidocSignatureSpan">redbird.proxy.prototype.</span>resolve
+        <span class="apidocSignatureSpan">(host, url)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">resolve = function (host, url) {
+  var route;
+
+  host = host &amp;&amp; host.toLowerCase();
+  for (var i = 0; i &lt; this.resolvers.length; i++) {
+    route = this.resolvers[i].call(this, host, url);
+    if (route &amp;&amp; (route = ReverseProxy.buildRoute(route))) {
+      // ensure resolved route has path that prefixes URL
+      // no need to check for native routes.
+      if (!route.isResolved || route.path === '/' || startsWith(url, route.path)) {
+        return route;
+      }
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.redbird.proxy.prototype.setupHttpProxy" id="apidoc.element.redbird.proxy.prototype.setupHttpProxy">
+        function <span class="apidocSignatureSpan">redbird.proxy.prototype.</span>setupHttpProxy
+        <span class="apidocSignatureSpan">(proxy, websocketsUpgrade, log, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setupHttpProxy = function (proxy, websocketsUpgrade, log, opts) {
+  var _this = this;
+  var server = this.server = http.createServer(function (req, res) {
+    var src = getSource(req);
+    var target = _this._getTarget(src, req);
+    if (target){
+      if (shouldRedirectToHttps(_this.certs, src, target, _this)) {
+        redirectToHttps(req, res, target, opts.ssl, log);
+      } else {
+        proxy.web(req, res, { target: target });
+      }
+    } else {
+      respondNotFound(req, res);
+    }
+  });
+
+  //
+  // Listen to the `upgrade` event and proxy the
+  // WebSocket requests as well.
+  //
+  server.on('upgrade', websocketsUpgrade);
+
+  server.on('error', function (err) {
+    log &amp;&amp; log.error(err, 'Server Error');
+  });
+
+  return server;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.redbird.proxy.prototype.setupHttpsProxy" id="apidoc.element.redbird.proxy.prototype.setupHttpsProxy">
+        function <span class="apidocSignatureSpan">redbird.proxy.prototype.</span>setupHttpsProxy
+        <span class="apidocSignatureSpan">(proxy, websocketsUpgrade, log, sslOpts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setupHttpsProxy = function (proxy, websocketsUpgrade, log, sslOpts){
+  var _this = this;
+  var https;
+
+  this.certs = this.certs || {};
+
+  var certs = this.certs;
+
+  var ssl = {
+    SNICallback: function (hostname, cb) {
+      if (cb) {
+        cb(null, certs[hostname]);
+      } else {
+        return certs[hostname];
+      }
+    },
+    //
+    // Default certs for clients that do not support SNI.
+    //
+    key: getCertData(sslOpts.key),
+    cert: getCertData(sslOpts.cert)
+  };
+
+  if (sslOpts.ca) {
+    ssl.ca = getCertData(sslOpts.ca, true);
+  }
+
+  if (sslOpts.opts) {
+    ssl = _.defaults(ssl, sslOpts.opts);
+  }
+
+  if (sslOpts.http2) {
+    https = require('spdy');
+    if(_.isObject(sslOpts.http2)){
+      sslOpts.spdy = sslOpts.http2;
+    }
+  } else {
+    https = require('https');
+  }
+
+  var httpsServer = this.httpsServer = https.createServer(ssl, function (req, res) {
+
+    var src = getSource(req);
+
+    var target = _this._getTarget(src, req);
+    if (target) {
+      proxy.web(req, res, { target: target });
+    } else {
+      respondNotFound(req, res);
+    }
+  });
+
+  httpsServer.on('upgrade', websocketsUpgrade);
+
+  httpsServer.on('error', function (err) {
+    log &amp;&amp; log.error(err, 'HTTPS Server Error');
+  });
+
+  httpsServer.on('clientError', function (err) {
+    log &amp;&amp; log.error(err, 'HTTPS Client  Error');
+  });
+
+  log &amp;&amp; log.info('Listening to HTTPS requests on port %s', sslOpts.port);
+  httpsServer.listen(sslOpts.port, sslOpts.ip);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.redbird.proxy.prototype.setupLetsencrypt" id="apidoc.element.redbird.proxy.prototype.setupLetsencrypt">
+        function <span class="apidocSignatureSpan">redbird.proxy.prototype.</span>setupLetsencrypt
+        <span class="apidocSignatureSpan">(log, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setupLetsencrypt = function (log, opts) {
+  if (!opts.letsencrypt.path) {
+    throw Error('Missing certificate path for Lets Encrypt');
+  }
+  var letsencryptPort = opts.letsencrypt.port || 3000;
+  letsencrypt.init(opts.letsencrypt.path, letsencryptPort, log);
+
+  opts.resolvers = opts.resolvers || [];
+  this.letsencryptHost = '127.0.0.1:' + letsencryptPort;
+  var targetHost = 'http://' + this.letsencryptHost;
+  var challengeResolver = function (host, url) {
+    if (/^\/.well-known\/acme-challenge/.test(url)) {
+      return targetHost + '/' + host;
+    }
+  }
+  challengeResolver.priority = 9999;
+  this.addResolver(challengeResolver);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.redbird.proxy.prototype.unregister" id="apidoc.element.redbird.proxy.prototype.unregister">
+        function <span class="apidocSignatureSpan">redbird.proxy.prototype.</span>unregister
+        <span class="apidocSignatureSpan">(src, target)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">unregister = function (src, target) {
+  if (this.opts.cluster &amp;&amp; cluster.isMaster) return this;
+
+  if (!src) {
+    return this;
+  }
+
+  src = prepareUrl(src);
+  var routes = this.routing[src.hostname] || [];
+  var pathname = src.pathname || '/';
+  var i;
+
+  for (i = 0; i &lt; routes.length; i++) {
+    if (routes[i].path === pathname) {
+      break;
+    }
+  }
+
+  if (i &lt; routes.length) {
+    var route = routes[i];
+
+    if (target) {
+      target = prepareUrl(target);
+      _.remove(route.urls, function (url) {
+        return url.href === target.href;
+      });
+    } else {
+      route.urls = [];
+    }
+
+    if (route.urls.length === 0) {
+      routes.splice(i, 1);
+      var certs = this.certs;
+      if (certs) {
+        if (certs[src.hostname] &amp;&amp; certs[src.hostname].renewalTimeout) {
+          safe.clearTimeout(certs[src.hostname].renewalTimeout);
+        }
+        delete certs[src.hostname];
+      }
+    }
+
+    this.log &amp;&amp; this.log.info({ from: src, to: target }, 'Unregistered a route');
+  }
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    }
+  }
+});
+
+// On Delete
+_this.watcher.on("delete", function(body,headers){
+  if(body.node.key){
+    _this.redbird.<span class="apidocCodeKeywordSpan">unregister</span>(removeEtcDir(body.node.key));
+  }
+});
+
+// Handle Errors
+_this.watcher.on("error", function(err){
+  log.error(err, 'etcd backend error');
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.redbird.proxy.prototype.updateCertificates" id="apidoc.element.redbird.proxy.prototype.updateCertificates">
+        function <span class="apidocSignatureSpan">redbird.proxy.prototype.</span>updateCertificates
+        <span class="apidocSignatureSpan">(domain, email, production, renewWithin, renew)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">updateCertificates = function (domain, email, production, renewWithin, renew) {
+  var _this = this;
+  return letsencrypt.getCertificates(domain, email, production, renew, this.log).then(function (certs) {
+    if (certs) {
+      var opts = {
+        key: certs.privkey,
+        cert: certs.cert + certs.chain
+      }
+      _this.certs[domain] = tls.createSecureContext(opts).context;
+
+      //
+      // TODO: cluster friendly
+      //
+      var renewTime = (certs.expiresAt - Date.now()) - renewWithin;
+      renewTime = renewTime &gt; 0 ? renewTime : _this.opts.letsencrypt.minRenewTime || 60 * 60 * 1000;
+
+      _this.log &amp;&amp; _this.log.info('Renewal of %s in %s days', domain, Math.floor(renewTime / ONE_DAY));
+
+      function renewCertificate() {
+        _this.log &amp;&amp; _this.log.info('Renewing letscrypt certificates for %s', domain);
+        _this.updateCertificates(domain, email, production, renewWithin, true);
+      }
+
+      _this.certs[domain].renewalTimeout = safe.setTimeout(renewCertificate, renewTime);
+    } else {
+      //
+      // TODO: Try again, but we need an exponential backof to avoid getting banned.
+      //
+      _this.log &amp;&amp; _this.log.info('Could not get any certs for %s', domain);
+    }
+  }, function (err) {
+    console.error('Error getting LetsEncrypt certificates', err);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
